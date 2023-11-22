@@ -106,7 +106,7 @@ Your contributions can significantly impact the success of this project. Current
 Apache License
 Version 2.0, January 2004
 
-Copyright (c) 2003 Team USA
+Copyright (c) 2023 Team USA - Unnabh, Shrey & Aditya
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
