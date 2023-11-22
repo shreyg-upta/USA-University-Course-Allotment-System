@@ -2,6 +2,18 @@
 
 The project focuses on optimizing the University Course Assignment System within a department, addressing the complex task of assigning courses to faculty members belonging to distinct categories ("x1," "x2," "x3"). Each category has specific course load constraints, and faculty members express preferences through prioritized lists. The challenge is to develop an assignment scheme that maximizes course assignments while adhering to faculty preferences and category-based constraints. Notably, the system allows faculty flexibility in taking multiple courses, and a single course can be assigned to multiple faculty members, with load considerations. The uniqueness of this problem lies in its flexibility, differing from conventional Assignment problems, offering avenues for potential modifications to enhance its applicability.
 
+## Prerequisites
+
+
+- **Code Representation of Graphs** ** : https://www.youtube.com/watch?v=bTtm2ky7I3Y
+- **DFS**: https://www.youtube.com/watch?v=PMMc4VsIacU
+- **Ford-Fulkerson’s Algorithm**: https://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/
+- **Maximum Bipartite Matching**: https://www.geeksforgeeks.org/maximum-bipartite-matching/
+- **Maximum Weighted Bipartite Matching**: https://cse.iitkgp.ac.in/~abhij/course/theory/Algo2/Autumn21/slides/5-Weighted-Matching.pdf
+
+** If you are having difficulties understanding the various terminologies in this video, Refer to the lecture slides of Graphs.
+
+
 ## Getting Started
 
 ### Installation:
