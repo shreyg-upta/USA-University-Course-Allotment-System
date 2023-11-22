@@ -18,6 +18,8 @@ The project focuses on optimizing the University Course Assignment System within
 ## Prerequisites
 
 
+- **OOP in C++** : https://www.geeksforgeeks.org/object-oriented-programming-in-cpp/
+- **OOP in C++ 2** : http://www.math.uaa.alaska.edu/~afkjm/csce211/handouts/SeparateCompilation.pdf
 - **Code Representation of Graphs** ** : https://www.youtube.com/watch?v=bTtm2ky7I3Y
 - **DFS**: https://www.youtube.com/watch?v=PMMc4VsIacU
 - **Ford-Fulkerson’s Algorithm**: https://www.geeksforgeeks.org/ford-fulkerson-algorithm-for-maximum-flow-problem/
