@@ -2,6 +2,19 @@
 
 The project focuses on optimizing the University Course Assignment System within a department, addressing the complex task of assigning courses to faculty members belonging to distinct categories ("x1," "x2," "x3"). Each category has specific course load constraints, and faculty members express preferences through prioritized lists. The challenge is to develop an assignment scheme that maximizes course assignments while adhering to faculty preferences and category-based constraints. Notably, the system allows faculty flexibility in taking multiple courses, and a single course can be assigned to multiple faculty members, with load considerations. The uniqueness of this problem lies in its flexibility, differing from conventional Assignment problems, offering avenues for potential modifications to enhance its applicability.
 
+## Methodology
+
+- We’ll Start by inputting professors and and their priority order 
+- We’ll make a bipartite graph of this data with courses being the first set of vertices and  Professors being the second set of vertices rather than an intuitive vice-versa approach.
+- We’ll make an algorithm (later) for making a priority order for each course. It can never be 100% optimised, but we’ll try to make it as optimised as possible using algorithms like sorting by a preference score, which could be calculated by<br>
+1 -  Professor priority rank of that course/Total priorities of the professor.
+- Similarly, We’ll have to make a general preference order of all the Courses (which we’ll do at last).
+- Then, we’ll apply the Hungarian Algorithm (Refer to the Prerequisites) with the order Source - Courses - Professors - Sink, with weights between source and all course being 2 (since a course is taught by 2 x ½ professors) and weight between Professors and Sink being the maximum course a prof can take x 2(basically, their category no.). We basically took ½ course as 1 unit to come up with this. 
+- We shall generate a warning message if all of the professors’ slots are not filled. It could be a case if courses are much less than the professors. And this is why we did opposite bipartite matching in the second step, because we can not have a course being taught by half a professor and no one is teaching the other half.
+- We’ll apply the algorithm 2 times on each course and if the course is impossible to be taken then, we’ll take back the first set of algorithms too.
+- A lot of optimizations are possible in this code, which we’ll do after completing this basic structure, ironically which is not at all basic.
+
+
 ## Prerequisites
 
 
