@@ -1,3 +1,5 @@
+#include "bits/stdc++.h"
+#include "headers.h"
 #ifndef PROFESSORS_H
 #define PROFESSORS_H
 
