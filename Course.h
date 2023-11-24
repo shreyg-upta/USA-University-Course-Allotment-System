@@ -1,5 +1,6 @@
+// Importing necessary libraries
 #include "bits/stdc++.h"
-#include "headers.h"  // Include header file
+#include "headers.h" 
 #ifndef COURSE_H
 #define COURSE_H
 
@@ -11,11 +12,12 @@ class Course {
     bool isFirstDegree;
 
 public:
+    // Constructor declaration
     Course(string s);
     Course(string s, string c, unsigned int cr, bool e, bool f);
     Course(string s, string t);
-      // Constructor declaration
 
+    // Accessor declaration
     bool getIsElective();
     bool getIsFirstDegree();
     string getCourseTitle();
@@ -31,9 +33,6 @@ public:
     void setCourse(string s, string t);
     bool sameCourse(Course c);
     bool sameCourse(string s);
-      // Accessor declaration
-
-     // Method declaration
 };
 
-#endif // MYCLASS_H
+#endif

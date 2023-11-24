@@ -1,12 +1,22 @@
-#ifndef PROFESSORS_H
-#define PROFESSORS_H
+// Importing necessary libraries
+#include "bits/stdc++.h"
+#include "headers.h"
+// #include "Course.h"  // Why should we not include this class?
+#ifndef COURSE_H
+#define COURSE_H
 
-class Professor {
+class CourseList {
+    vector<Course> list;
+
 public:
-    Professor();  // Constructor declaration
-    void doSomething();  // Method declaration
-private:
-    int myData;  // Data member declaration
+    // Constructor declaration
+    CourseList(Course c1);
+
+    // Accessor declaration
+    vector<Course> getList();
+    void setCourse(Course c);
+    void removeCourse(Course c);
+    bool courseInList(Course c);
 };
 
-#endif // MYCLASS_H
+#endif
