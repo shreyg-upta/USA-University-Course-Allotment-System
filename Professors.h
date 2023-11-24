@@ -1,3 +1,4 @@
+// Importing necessary libraries
 #include "bits/stdc++.h"
 #include "headers.h"
 #include "Course.h"
@@ -5,28 +6,20 @@
 #define PROFESSORS_H
 
 class Professor {
-    string profName;
-    string profCat;
-    string profPrefer[];
-    string profAssign[];
+  string profName;
+  string profCat;
 
 public:
-    Professor(string profName);
-    Professor(string profName, string profCat);
-    Professor(string profName, string profCat, string profPrefer[], string profAssign[]);
-      // Constructor declaration
+  // Constructor declaration
+  Professor(string profName);
+  Professor(string profName, string profCat); 
 
-    string getProfName(); 
-    string getProfCat();
-    string getProfPrefer();
-    string getProfAssign();
-    void setProfName(string name);
-    void setProfCat(string cat);
-    void addProfPrefer(Course c);
-    void addProfAssign(Course c);
-    void removeProfPrefer(Course c);
-    void removeProfAssign(Course c);
-     // Method declaration
+  // Method declaration
+  string getProfName(); 
+  string getProfCat();
+  void setProfName(string name);
+  void setProfCat(string cat);
+    
 };
 
-#endif // MYCLASS_H
+#endif
