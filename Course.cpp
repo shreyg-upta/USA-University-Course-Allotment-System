@@ -120,3 +120,16 @@ bool Course::sameCourse(string s) {
         return false;
     }
 }
+
+bool Course::operator<(const Course &other) {
+    // Implement comparison logic based on your class members
+    // For example, if your Course class has an id member:
+    if(!isElective && !other.isElective) return true;
+    else if(!isElective && other.isElective) return true;
+    else if(isElective && !other.isElective) return false;
+    else if(isElective && other.isElective && isFirstDegree && other.isFirstDegree) return true;
+    else if(isElective && other.isElective && isFirstDegree && !other.isFirstDegree) return true;
+    else if(isElective && other.isElective && !isFirstDegree && other.isFirstDegree) return false;
+    else if(isElective && other.isElective && !isFirstDegree && !other.isFirstDegree) return false;
+}
+
