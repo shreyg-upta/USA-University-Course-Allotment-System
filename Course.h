@@ -35,6 +35,8 @@ public:
     void setCourse(string s, string t);
     bool sameCourse(Course c);
     bool sameCourse(string s);
+    bool operator<(const Course &other);
+    
 };
 
 #endif

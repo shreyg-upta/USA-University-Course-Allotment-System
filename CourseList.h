@@ -11,11 +11,14 @@ class CourseList {
 
 public:
     // Constructor declaration
+    CourseList();
     CourseList(Course c1);
 
     // Accessor declaration
     vector<Course> getList();
-    void setCourse(Course c);
-    void removeCourse(Course c);
-    bool courseInList(Course c);
+    void add(Course c);
+    void remove(Course c);
+    bool check(Course c);
+    void checkandadd(Course c);
+
 };
