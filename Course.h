@@ -4,6 +4,8 @@
 #ifndef COURSE_H
 #define COURSE_H
 
+using namespace std;
+
 class Course {
     string courseTitle;
     string courseCode;

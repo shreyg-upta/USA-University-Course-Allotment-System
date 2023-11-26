@@ -1,5 +1,6 @@
 #include "Course.h"
 
+using namespace std;
  
 Course::Course(string s) {
     // Constructor implementation

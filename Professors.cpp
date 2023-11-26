@@ -1,6 +1,8 @@
 // Importing necessary libraries
 #include "Professors.h"
 
+using namespace std;
+
 Professor::Professor(string name) {
     // Constructor implementation
     profName = name;
