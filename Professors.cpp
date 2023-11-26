@@ -1,11 +1,35 @@
+// Importing necessary libraries
 #include "Professors.h"
 
-MyClass::MyClass() {
+using namespace std;
+
+Professor::Professor(string name) {
     // Constructor implementation
-    myData = 0;
+    profName = name;
 }
 
-void MyClass::doSomething() {
+Professor::Professor(string name, string cat) {
+    // Constructor implementation
+    profName = name;
+    profCat = cat;
+}
+
+string Professor::getProfName() {
     // Method implementation
-    // ...
+    return profName;
+}
+
+string Professor::getProfCat() {
+    // Method implementation
+    return profCat;
+}
+
+void Professor::setProfName(string s) {
+    // Method implementation
+    profName = s;
+}
+
+void Professor::setProfCat(string s) {
+    // Method implementation
+    profCat = s;
 }

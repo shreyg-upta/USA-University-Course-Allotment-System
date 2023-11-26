@@ -1,12 +1,21 @@
-#ifndef PROFESSORS_H
-#define PROFESSORS_H
+// Importing necessary libraries
+#include "bits/stdc++.h"
+#include "headers.h"
+#include "Course.h"
+#define COURSE_H
 
-class Professor {
+using namespace std;
+
+class CourseList {
+    vector<Course> list;
+
 public:
-    Professor();  // Constructor declaration
-    void doSomething();  // Method declaration
-private:
-    int myData;  // Data member declaration
-};
+    // Constructor declaration
+    CourseList(Course c1);
 
-#endif // MYCLASS_H
+    // Accessor declaration
+    vector<Course> getList();
+    void setCourse(Course c);
+    void removeCourse(Course c);
+    bool courseInList(Course c);
+};
