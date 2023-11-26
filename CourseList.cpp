@@ -1,6 +1,9 @@
 #include "CourseList.h"
 #include "bits/stdc++.h"
 #include "headers.h"
+#include "Course.h"
+
+using namespace std;
 
 CourseList::CourseList(Course c1) {
     // Constructor implemetation

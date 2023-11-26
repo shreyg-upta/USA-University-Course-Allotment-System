@@ -1,9 +1,10 @@
 // Importing necessary libraries
 #include "bits/stdc++.h"
 #include "headers.h"
-// #include "Course.h"  // Why should we not include this class?
-#ifndef COURSE_H
+#include "Course.h"
 #define COURSE_H
+
+using namespace std;
 
 class CourseList {
     vector<Course> list;
@@ -18,5 +19,3 @@ public:
     void removeCourse(Course c);
     bool courseInList(Course c);
 };
-
-#endif

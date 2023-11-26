@@ -24,7 +24,7 @@ class course{
     course(string name){
         this->name = name;
     };
-    bool compare(course c1)
+    bool compare(course c1);
 
 };
 
