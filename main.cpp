@@ -1,16 +1,13 @@
 #include <bits/stdc++.h>
-#include "CourseList.h"
 #include "Professors.h"
-#include "Course.h"
-#include "headers.h"
 using namespace std;
 
 //incomplete push. Please skip this commit
-void professorConflict(map<Course, vector<int>>& initialMap, map<Course, vector<int>>& finalMap, vector<Professor>& allProfs, Course course)
+void professorConflict(map<Course, vector<int> > &initialMap, map<Course, vector<int> >&finalMap, vector<Professor> & allProfs, Course course)
 {
     int i = 0;
         while(i<allProfs.size()){
-            if(initialMap[course][i] >0 &&allProfs[i].slotsLeft>0 && allProfs[i].compare()){
+            if(initialMap[course][i] >0 &&allProfs[i].slotsLeft>0 /*&& allProfs[i].compare()*/){
                 initialMap[course][i]--;
                 finalMap[course][i]++;
                 allProfs[i].slotsLeft--;
@@ -36,19 +33,10 @@ int main()
 {
     vector <Professor> allProfs;
     // input aditya dekh lega 
-    ifstream file ("input.csv");
 
-    if (!file.is_open()) {
-        cout << "Failed to open the file." << std::endl;
-        return 1;
-    }
 
-    vector<vector<string>> rowdata;
-
-    for()
-
-    map<Course, vector<int>> initialMap;
-    map<Course, vector<int>> finalMap;
+    map<Course, vector<int> > initialMap;
+    map<Course, vector<int> > finalMap;
     CourseList allFDCDCs; // Adding all the FD CDCs offered in a master CourseList
     for (int i = 0; i < allProfs.size(); i++)
     {
