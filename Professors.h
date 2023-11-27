@@ -9,9 +9,12 @@
 class Professor {
   string profName;
   string profCat;
-  CourseList priorityOrder;
+  CourseList HDCDCPref;
+  CourseList FDCDCPref;
+  CourseList HDELPref;
+  CourseList FDELPref;
   CourseList coursesAssigned;
-  int slotsLeft;
+  public: int slotsLeft;
 public:
   // Constructor declaration
   Professor(string profName);
@@ -20,11 +23,17 @@ public:
   // Method declaration
   string getProfName(); 
   string getProfCat();
-  CourseList getPriorityOrder();
+  CourseList getHDCDCPref();
+  CourseList getFDCDCPref();
+  CourseList getHDELPref();
+  CourseList getFDELPref();
   CourseList getCoursesAssigned();
   void setProfName(string name);
   void setProfCat(string cat);
-  void setPriorityOrder(CourseList l);  
+  void setHDCDCPref(CourseList l);  
+  void setFDCDCPref(CourseList l);  
+  void setHDELPref(CourseList l);  
+  void setFDELPref(CourseList l);  
   void setCoursesAssigned(CourseList l);
 };
 

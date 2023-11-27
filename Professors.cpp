@@ -25,9 +25,24 @@ string Professor::getProfCat() {
     return profCat;
 }
 
-CourseList Professor::getPriorityOrder() {
+CourseList Professor::getHDCDCPref() {
     // Method implementation
-    return priorityOrder;
+    return HDCDCPref;
+}
+
+CourseList Professor::getFDCDCPref() {
+    // Method implementation
+    return FDCDCPref;
+}
+
+CourseList Professor::getHDELPref() {
+    // Method implementation
+    return HDELPref;
+}
+
+CourseList Professor::getFDELPref() {
+    // Method implementation
+    return FDELPref;
 }
 
 CourseList Professor::getCoursesAssigned() {
@@ -39,9 +54,24 @@ void Professor::setProfName(string s) {
     profName = s;
 }
 
-void Professor::setPriorityOrder(CourseList l) {
+void Professor::setHDCDCPref(CourseList l) {
     // Method implementation
-    priorityOrder = l;
+    HDCDCPref = l;
+}
+
+void Professor::setFDCDCPref(CourseList l) {
+    // Method implementation
+    FDCDCPref = l;
+}
+
+void Professor::setHDELPref(CourseList l) {
+    // Method implementation
+    HDELPref = l;
+}
+
+void Professor::setFDELPref(CourseList l) {
+    // Method implementation
+    FDELPref = l;
 }
 
 void Professor::setCoursesAssigned(CourseList l) {
