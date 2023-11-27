@@ -11,7 +11,7 @@ class Professor {
   string profCat;
   CourseList priorityOrder;
   CourseList coursesAssigned;
-  int slotsLeft;
+  public: int slotsLeft;
 public:
   // Constructor declaration
   Professor(string profName);
