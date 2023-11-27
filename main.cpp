@@ -29,6 +29,38 @@ void professorConflict(map<Course, vector<int> > &initialMap, map<Course, vector
 }
 //incomplete push. Please skip this commit
 
+void writeDataToCSV(const string& filePath, const vector<vector<string>>& data) {
+    // Open the CSV file
+    ofstream csvFile(filePath);
+
+    if (!csvFile.is_open()) {
+        cerr << "Error opening the file: " << filePath << endl;
+        return;
+    }
+
+    // Iterate through each row of data
+    for (const vector<string>& row : data) {
+        // Iterate through each element in the row
+        for (auto it = row.begin(); it != row.end(); ++it) {
+            // Write the element to the file
+            csvFile << *it;
+
+            // Add a comma if it's not the last element in the row
+            if (next(it) != row.end()) {
+                csvFile << ",";
+            }
+        }
+
+        // Move to the next line after each row
+        csvFile << "\n";
+    }
+
+    // Close the file
+    csvFile.close();
+
+    cout << "Data written to CSV file: " << filePath << endl;
+}
+
 int main()
 {
     vector <Professor> allProfs;
@@ -56,27 +88,27 @@ int main()
 
         // Read the FDCDCs
         CourseList l1;
-        while (std::getline(ss, token, ',')) {
+        while (getline(ss, token, ',')) {
             l1.checkandadd(token);
             professor.setFDCDCPref(l1);
         }
 
         // Read the FDElecs
         CourseList l2;
-        while (std::getline(ss, token, ',')) {
+        while (getline(ss, token, ',')) {
             l2.checkandadd(token);
             professor.setFDELPref(l2);
         }
 
         // Read the HDCDCs
         CourseList l3;
-        while (std::getline(ss, token, ',')) {
+        while (getline(ss, token, ',')) {
             professor.setHDCDCPref(l3);
         }
 
         // Read the HDElecs
         CourseList l4;
-        while (std::getline(ss, token, ',')) {
+        while (getline(ss, token, ',')) {
             professor.setHDELPref(l4);
         }
 
@@ -200,7 +232,19 @@ for(const auto& course : allHDElectives.getList()) {
     }
     // incomplete push. Please skip this commit
 
-    
+    vector<vector<string>> data = {
+        {"Name", "Course"},
+        {"Aditya", "CS 213"},
+        {"Aditya", "CS 215"},
+        {"Aditya", "CS 251"},
+        {"Aditya", "CS 293"},
+    };
 
-  return 0;
+    // File path to write the CSV file
+    string filePath = "output.csv";
+
+    // Write data to CSV file
+    writeDataToCSV(filePath, data);
+
+    return 0;
 }
