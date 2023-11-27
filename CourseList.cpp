@@ -42,3 +42,10 @@ void CourseList::checkandadd(Course c) {
         cout << "Course not found.";
     }
 }
+int CourseList::size() {
+    return list.size();
+}
+
+Course CourseList::getCourse(int i) {
+    return list[i];
+}

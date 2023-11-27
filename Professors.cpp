@@ -107,3 +107,11 @@ void Professor::setProfCat(string s) {
     }
     else cout << "Provide a suitable Category";
 }
+
+bool Professor::compare(Professor p) {
+    // Method implementation
+    if (profName == p.getProfName()) {
+        return true;
+    }
+    else return false;
+}

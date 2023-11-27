@@ -131,5 +131,6 @@ bool Course::operator<(const Course &other) {
     else if(isElective && other.isElective && isFirstDegree && !other.isFirstDegree) return true;
     else if(isElective && other.isElective && !isFirstDegree && other.isFirstDegree) return false;
     else if(isElective && other.isElective && !isFirstDegree && !other.isFirstDegree) return false;
+    else return false;
 }
 

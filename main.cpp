@@ -1,16 +1,13 @@
 #include <bits/stdc++.h>
-#include "CourseList.h"
 #include "Professors.h"
-#include "Course.h"
-#include "headers.h"
 using namespace std;
 
 //incomplete push. Please skip this commit
-void professorConflict(map<Course, vector<int>>& initialMap, map<Course, vector<int>>& finalMap, vector<Professor>& allProfs, Course course)
+void professorConflict(map<Course, vector<int> > &initialMap, map<Course, vector<int> >&finalMap, vector<Professor> & allProfs, Course course)
 {
     int i = 0;
         while(i<allProfs.size()){
-            if(initialMap[course][i] >0 &&allProfs[i].slotsLeft>0 && allProfs[i].compare()){
+            if(initialMap[course][i] >0 &&allProfs[i].slotsLeft>0 /*&& allProfs[i].compare()*/){
                 initialMap[course][i]--;
                 finalMap[course][i]++;
                 allProfs[i].slotsLeft--;
@@ -36,6 +33,7 @@ int main()
 {
     vector <Professor> allProfs;
     // input aditya dekh lega 
+
     ifstream inputFile ("input.csv");
 
     if (!inputFile.is_open()) {
@@ -89,37 +87,37 @@ int main()
     // Close the file
     inputFile.close();
 
-    map<Course, vector<int>> initialMap;
-    map<Course, vector<int>> finalMap;
+    map<Course, vector<int> > initialMap;
+    map<Course, vector<int> > finalMap;
     CourseList allFDCDCs; // Adding all the FD CDCs offered in a master CourseList
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].FDCDCPreferences.size(); j++){
-        allFDCDCs.checkandadd(allProfs[i].FDCDCPreferences[j]);
+        for (int j = 0; j < allProfs[i].getFDCDCPref().size(); j++){
+        allFDCDCs.checkandadd(allProfs[i].getFDCDCPref().getCourse(j));
         }
     }
 
     CourseList allFDElectives; // Adding all the FD Electives offered in a master CourseList
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].FDElectivePreferences.size(); j++){
-        allFDElectives.checkandadd(allProfs[i].FDElectivePreferences[j]);
+        for (int j = 0; j < allProfs[i].getFDELPref().size(); j++){
+        allFDElectives.checkandadd(allProfs[i].getFDELPref().getCourse(j));
         }
     }
 
     CourseList allHDCDCs; // Adding all the HD CDCs offered in a master CourseList
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].HDCDCPreferences.size(); j++){
-        allHDCDCs.checkandadd(allProfs[i].HDCDCPreferences[j]);
+        for (int j = 0; j < allProfs[i].getHDCDCPref().size(); j++){
+        allHDCDCs.checkandadd(allProfs[i].getHDCDCPref().getCourse(j));
         }
     }
 
     CourseList allHDElectives; // Adding all the HD Electives offered in a master CourseList
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].HDElectivePreferences.size(); j++){
-        allHDElectives.checkandadd(allProfs[i].HDElectivePreferences[j]);
+        for (int j = 0; j < allProfs[i].getHDELPref().size(); j++){
+        allHDElectives.checkandadd(allProfs[i].getHDELPref().getCourse(j));
         }
     }
      
@@ -145,32 +143,32 @@ for(const auto& course : allHDElectives.getList()) {
    // making all the possible edges
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].FDCDCPreferences.size(); j++){
-        initialMap[allProfs[i].FDCDCPreferences[j]][i] = 2;
+        for (int j = 0; j < allProfs[i].getFDCDCPref().size(); j++){
+        initialMap[allProfs[i].getFDCDCPref().getCourse(j)][i] = 2;
         }
     }
 
    
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].FDElectivePreferences.size(); j++){
-            initialMap[allProfs[i].FDElectivePreferences[j]][i] = 2;
+        for (int j = 0; j < allProfs[i].getFDELPref().size(); j++){
+            initialMap[allProfs[i].getFDELPref().getCourse(j)][i] = 2;
         }
     }
 
 
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].HDCDCPreferences.size(); j++){
-        initialMap[allProfs[i].HDCDCPreferences[j]][i] = 2;
+        for (int j = 0; j < allProfs[i].getHDCDCPref().size(); j++){
+        initialMap[allProfs[i].getHDCDCPref().getCourse(j)][i] = 2;
         }
     }
 
 
     for (int i = 0; i < allProfs.size(); i++)
     {
-        for (int j = 0; j < allProfs[i].HDElectivePreferences.size(); j++){
-       initialMap[allProfs[i].HDElectivePreferences[j]][i] = 2;
+        for (int j = 0; j < allProfs[i].getHDELPref().size(); j++){
+       initialMap[allProfs[i].getHDELPref().getCourse(j)][i] = 2;
         }
     }
     // incomplete push. Please skip this commit
