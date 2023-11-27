@@ -20,5 +20,7 @@ public:
     void remove(Course c);
     bool check(Course c);
     void checkandadd(Course c);
+    int size();
+    Course getCourse(int i);
 
 };

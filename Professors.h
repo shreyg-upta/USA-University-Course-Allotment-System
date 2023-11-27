@@ -35,6 +35,7 @@ public:
   void setHDELPref(CourseList l);  
   void setFDELPref(CourseList l);  
   void setCoursesAssigned(CourseList l);
+  bool compare(Professor p);
 };
 
 #endif
