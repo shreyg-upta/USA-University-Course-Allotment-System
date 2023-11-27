@@ -36,16 +36,58 @@ int main()
 {
     vector <Professor> allProfs;
     // input aditya dekh lega 
-    ifstream file ("input.csv");
+    ifstream inputFile ("input.csv");
 
-    if (!file.is_open()) {
-        cout << "Failed to open the file." << std::endl;
+    if (!inputFile.is_open()) {
+        cout << "Failed to open the file." << endl;
         return 1;
     }
 
-    vector<vector<string>> rowdata;
+    // Read the file line by line
+    string line, name;
+    while (getline(inputFile, line)) {
+        istringstream ss(line);
+        string token;
 
-    for()
+        // Create a Professor object for each line
+        Professor professor;
+
+        // Read the professor's name
+        getline(ss, name, ',');
+        professor.setProfName(name);
+
+        // Read the FDCDCs
+        CourseList l1;
+        while (std::getline(ss, token, ',')) {
+            l1.checkandadd(token);
+            professor.setFDCDCPref(l1);
+        }
+
+        // Read the FDElecs
+        CourseList l2;
+        while (std::getline(ss, token, ',')) {
+            l2.checkandadd(token);
+            professor.setFDELPref(l2);
+        }
+
+        // Read the HDCDCs
+        CourseList l3;
+        while (std::getline(ss, token, ',')) {
+            professor.setHDCDCPref(l3);
+        }
+
+        // Read the HDElecs
+        CourseList l4;
+        while (std::getline(ss, token, ',')) {
+            professor.setHDELPref(l4);
+        }
+
+        // Add the Professor object to the vector
+        allProfs.push_back(professor);
+    }
+
+    // Close the file
+    inputFile.close();
 
     map<Course, vector<int>> initialMap;
     map<Course, vector<int>> finalMap;

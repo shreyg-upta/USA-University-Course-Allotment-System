@@ -4,6 +4,18 @@
 
 using namespace std;
 
+Professor::Professor(){
+    // Constructor implementation
+    profName = "";
+    profCat = "";
+    HDCDCPref = CourseList();
+    FDCDCPref = CourseList();
+    HDELPref = CourseList();
+    FDELPref = CourseList();
+    coursesAssigned = CourseList();
+    slotsLeft = -1;
+}
+
 Professor::Professor(string name) {
     // Constructor implementation
     profName = name;

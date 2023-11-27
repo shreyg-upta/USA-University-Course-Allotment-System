@@ -15,8 +15,10 @@ class Professor {
   CourseList FDELPref;
   CourseList coursesAssigned;
   public: int slotsLeft;
-public:
+  // public: string profName;
+  public:
   // Constructor declaration
+  Professor();
   Professor(string profName);
   Professor(string profName, string profCat); 
 
