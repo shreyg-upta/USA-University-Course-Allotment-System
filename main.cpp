@@ -5,6 +5,32 @@
 #include "headers.h"
 using namespace std;
 
+//incomplete push. Please skip this commit
+void professorConflict(map<Course, vector<int>>& initialMap, map<Course, vector<int>>& finalMap, vector<Professor>& allProfs, Course course)
+{
+    int i = 0;
+        while(i<allProfs.size()){
+            if(initialMap[course][i] >0 &&allProfs[i].slotsLeft>0 && allProfs[i].compare()){
+                initialMap[course][i]--;
+                finalMap[course][i]++;
+                allProfs[i].slotsLeft--;
+                break;
+            }
+            i++;
+        }
+        if(i>=allProfs.size()){
+            // find the first professor with slots left
+            int j = 0;
+            while(j<allProfs.size()){
+                if(initialMap[course][i] >0){
+                professorConflict(initialMap, finalMap, allProfs, course);
+                break;
+                }
+                j++;
+            }
+        }
+}
+//incomplete push. Please skip this commit
 
 int main()
 {
@@ -46,6 +72,7 @@ int main()
     }
      
 
+// initialising the map
 for(const auto& course : allFDCDCs.getList()) {
     initialMap[course] = vector<int>(allProfs.size(), 0);
     finalMap[course] = vector<int>(allProfs.size(), 0);
@@ -63,6 +90,7 @@ for(const auto& course : allHDElectives.getList()) {
     finalMap[course] = vector<int>(allProfs.size(), 0);
 }
    
+   // making all the possible edges
     for (int i = 0; i < allProfs.size(); i++)
     {
         for (int j = 0; j < allProfs[i].FDCDCPreferences.size(); j++){
@@ -93,6 +121,34 @@ for(const auto& course : allHDElectives.getList()) {
        initialMap[allProfs[i].HDElectivePreferences[j]][i] = 2;
         }
     }
+    // incomplete push. Please skip this commit
+    // implementing the hungarian algorithm
+    for(const auto& course : allFDCDCs.getList()) {
+        int i = 0;
+        while(i<allProfs.size()){
+            if(initialMap[course][i] >0 &&allProfs[i].slotsLeft>0){
+                initialMap[course][i]--;
+                finalMap[course][i]++;
+                allProfs[i].slotsLeft--;
+                break;
+            }
+            i++;
+        }
+        if(i>=allProfs.size()){
+            // find the first professor with slots left
+            int j = 0;
+            while(j<allProfs.size()){
+                if(initialMap[course][i] >0){
+                professorConflict(initialMap, finalMap, allProfs, course);
+                break;
+                }
+                j++;
+            }
+        }
+
+        // if i =getList.size loop to find first proffessor
+    }
+    // incomplete push. Please skip this commit
 
     
 
