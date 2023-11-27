@@ -36,6 +36,16 @@ int main()
 {
     vector <Professor> allProfs;
     // input aditya dekh lega 
+    ifstream file ("input.csv");
+
+    if (!file.is_open()) {
+        cout << "Failed to open the file." << std::endl;
+        return 1;
+    }
+
+    vector<vector<string>> rowdata;
+
+    for()
 
     map<Course, vector<int>> initialMap;
     map<Course, vector<int>> finalMap;
