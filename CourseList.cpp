@@ -1,6 +1,6 @@
 #include "CourseList.h"
 #include "bits/stdc++.h"
-#include "headers.h"
+// #include "headers.h"
 #include "Course.h"
 
 using namespace std;
@@ -35,11 +35,8 @@ bool CourseList::check(Course c) {
 }
 
 void CourseList::checkandadd(Course c) {
-    if (check(c)) {
+    if (!check(c)) {
         add(c);
-    }
-    else {
-        cout << "Course not found.";
     }
 }
 int CourseList::size() {

@@ -222,6 +222,10 @@ for(const auto& course : allHDElectives.getList()) {
             while(j<allProfs.size()){
                 if(initialMap[course][i] >0){
                 professorConflict(initialMap, finalMap, allProfs, course);
+                initialMap[course][j]++;
+                    finalMap[course][j]--;
+                    allProfs[j].slotsLeft++;
+                    bannedCourses.add(course);
                 break;
                 }
                 j++;
