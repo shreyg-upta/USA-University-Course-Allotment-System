@@ -121,7 +121,7 @@ bool Course::sameCourse(string s) {
     }
 }
 
-bool Course::operator<(const Course &other) {
+bool Course::operator<(const Course &other) const {
     // Implement comparison logic based on your class members
     // For example, if your Course class has an id member:
     if(!isElective && !other.isElective) return true;

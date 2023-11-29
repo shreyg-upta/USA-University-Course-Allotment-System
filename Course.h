@@ -1,6 +1,6 @@
 // Importing necessary libraries
 #include "bits/stdc++.h"
-#include "headers.h" 
+// #include "headers.h" 
 #ifndef COURSE_H
 #define COURSE_H
 
@@ -35,7 +35,7 @@ public:
     void setCourse(string s, string t);
     bool sameCourse(Course c);
     bool sameCourse(string s);
-    bool operator<(const Course &other);
+    bool operator<(const Course &other) const;
     
 };
 

@@ -1,7 +1,7 @@
 // Importing necessary libraries
 #include "bits/stdc++.h"
-#include "headers.h"
-#include "Course.h"
+// #include "headers.h"
+// #include "Course.h"
 #include "CourseList.h"
 #ifndef PROFESSORS_H
 #define PROFESSORS_H
