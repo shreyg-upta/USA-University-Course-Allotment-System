@@ -4,7 +4,7 @@
 #ifndef COURSE_H
 #define COURSE_H
 
-using namespace std;
+// using namespace std;
 
 class Course {
     string courseTitle;
@@ -12,6 +12,8 @@ class Course {
     unsigned int credit;
     bool isElective;
     bool isFirstDegree;
+    int bestPriority;
+    int slotsLeft;
 
 public:
     // Constructor declaration
@@ -25,6 +27,8 @@ public:
     string getCourseTitle();
     string getCourseCode();
     unsigned int getCredit();
+    int getBestPriority();
+    void setBestPriority(int p);
     void setIsElective(bool e);
     void setIsFirstDegree(bool f);
     void setCourseTitle(string t);
@@ -35,7 +39,10 @@ public:
     void setCourse(string s, string t);
     bool sameCourse(Course c);
     bool sameCourse(string s);
-    bool operator<(const Course &other);
+    bool operator==( Course &other);
+    bool operator<( Course &other);
+    int getSlotsLeft();
+    void decrementSlotsLeft();
     
 };
 

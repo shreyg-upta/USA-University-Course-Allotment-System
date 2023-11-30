@@ -10,6 +10,8 @@ Course::Course(string s) {
     else {
         courseTitle = s;
     }
+    bestPriority = INT_MAX;
+    slotsLeft = 2;
 }
 Course::Course(string s, string c, unsigned int cr, bool e, bool f) {
     // Constructor implementation
@@ -18,11 +20,25 @@ Course::Course(string s, string c, unsigned int cr, bool e, bool f) {
     credit = cr;
     isElective = e;
     isFirstDegree = f;
+    bestPriority = INT_MAX;
+    slotsLeft = 2;
 }
 Course::Course(string s, string t) {
     // Constructor implementation
     courseTitle = s;
     courseCode = t;
+    bestPriority = INT_MAX;
+    isElective = false;
+    isFirstDegree = false;
+    credit = 0;
+    slotsLeft = 2;
+
+}
+int Course::getSlotsLeft(){
+    return slotsLeft;
+}
+void Course::decrementSlotsLeft(){
+    slotsLeft--;
 }
 
 bool Course::getIsElective() {
@@ -49,6 +65,16 @@ string Course::getCourseCode() {
 unsigned int Course::getCredit() {
     // Method implementation
     return credit;
+}
+
+int Course::getBestPriority() {
+    // Method implementation
+    return bestPriority;
+}
+
+void Course::setBestPriority(int p) {
+    // Method implementation
+    bestPriority = p;
 }
 
 void Course::setIsElective(bool e) {
@@ -120,17 +146,37 @@ bool Course::sameCourse(string s) {
         return false;
     }
 }
-
-bool Course::operator<(const Course &other) {
+bool Course::operator==( Course &other) {
     // Implement comparison logic based on your class members
     // For example, if your Course class has an id member:
-    if(!isElective && !other.isElective) return true;
-    else if(!isElective && other.isElective) return true;
-    else if(isElective && !other.isElective) return false;
-    else if(isElective && other.isElective && isFirstDegree && other.isFirstDegree) return true;
-    else if(isElective && other.isElective && isFirstDegree && !other.isFirstDegree) return true;
-    else if(isElective && other.isElective && !isFirstDegree && other.isFirstDegree) return false;
-    else if(isElective && other.isElective && !isFirstDegree && !other.isFirstDegree) return false;
-    else return false;
+
+    if(isElective != other.isElective) return false;
+    else if(isFirstDegree != other.isFirstDegree) return false;
+    else{
+               if(courseTitle != other.courseTitle) return false;
+                else return true;    
+        
+    }
 }
 
+bool Course::operator<( Course &other) {
+    // Implement comparison logic based on your class members
+    // For example, if your Course class has an id member:
+
+    if(isElective && !other.isElective) return false;
+    else if(!isElective  && other.isElective) return true;
+    else{
+        if(isFirstDegree && !other.isFirstDegree) return true;
+        else if(!isFirstDegree && other.isFirstDegree) return false;
+        else{
+            if(bestPriority < other.bestPriority) return true;
+            else if(bestPriority > other.bestPriority) return false;
+            else{
+                    if(courseTitle < other.courseTitle) return true;
+                    else if(courseTitle > other.courseTitle) return false;
+                    else return false;
+                
+            }
+        }
+    }
+}

@@ -1,5 +1,5 @@
 #include <bits/stdc++.h>
-#include "Course.cpp"
+#include "Professor.cpp"
 using namespace std;
 
 // class professor{
@@ -32,6 +32,8 @@ using namespace std;
 int main()
 {
     Course ramesh("ramesh", "CSF111", 3, 1, 1);
+    Professor prof("ramesh", "x1");
     cout << ramesh.getCourseTitle() << ramesh.sameCourse(ramesh) <<endl;
+    cout << prof.getProfName() << prof.getProfCat() << endl;
   return 0;
 }
