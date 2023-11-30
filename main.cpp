@@ -353,3 +353,59 @@ int main()
     // implementing the hungarian algorithm
     for (auto &course : allFDCDCs)
     {
+        allotProfessor(course);
+    }
+    // for (const auto &course : allFDElectives)
+    // {
+    //     int i = 0;
+    //     while (i < allProfs.size())
+    //     {
+    //         if (initialMap[course][i] > 0 && allProfs[i].slotsLeft > 0)
+    //         {
+    //             initialMap[course][i]--;
+    //             finalMap[course][i]++;
+    //             allProfs[i].slotsLeft--;
+    //             break;
+    //         }
+    //         i++;
+    //     }
+    //     if (i >= allProfs.size())
+    //     {
+    //         // find the first professor with slots left
+    //         int j = 0;
+    //         while (j < allProfs.size())
+    //         {
+    //             if (initialMap[course][i] > 0)
+    //             {
+    //                 professorConflict(initialMap, finalMap, allProfs, course);
+    //                 initialMap[course][j]++;
+    //                 finalMap[course][j]--;
+    //                 allProfs[j].slotsLeft++;
+    //                 bannedCourses.add(course);
+    //                 break;
+    //             }
+    //             j++;
+    //         }
+
+    //         // if i =getList.size loop to find first proffessor
+    //     }
+    // }
+    // incomplete push. Please skip this commit
+/*
+    vector<vector<string> > data = {
+        {"Name", "Course"},
+        {"Aditya", "CS 213"},
+        {"Aditya", "CS 215"},
+        {"Aditya", "CS 251"},
+        {"Aditya", "CS 293"},
+    };
+
+    // File path to write the CSV file
+    string filePath = "output.csv";
+
+    // Write data to CSV file
+    writeDataToCSV(filePath, data);
+*/
+
+    return 0;
+}
