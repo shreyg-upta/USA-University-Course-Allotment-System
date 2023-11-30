@@ -1,0 +1,227 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\documentclass[preprint,authoryear]{elsarticle}
+%\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+\usepackage{fullpage}
+\usepackage{subcaption} %Subfigure
+%\usepackage{subfigure} %Subfigure
+\usepackage{pifont}
+\usepackage{latexsym}
+\usepackage{mathrsfs}
+\usepackage{amssymb,amsbsy}
+\usepackage{amsmath}     
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{tcolorbox}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{varwidth}
+%\usepackage{authblk}
+\usepackage{algorithm}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{algorithmic}
+\usepackage{lmodern}
+\usepackage{natbib}
+\usepackage{mathtools}      
+\usepackage[titletoc]{appendix}
+%\usepackage{titlesec}       
+\usepackage{titletoc}
+\usepackage{ntheorem}
+\DeclareMathOperator{\Hessian}{Hess}
+
+%\graphicspath{{Images/}}
+\usepackage{graphicx}
+\usepackage{epsfig}
+%% The amssymb package provides various useful mathematical symbols
+\usepackage{amssymb}
+\usepackage{amsmath}  
+\usepackage{float}
+\newfloat{algorithm}{t}{lop}
+\usepackage{lipsum}% http://ctan.org/pkg/lipsum
+\usepackage{tikz}   %allows shapes of nodes
+\usetikzlibrary{shapes,arrows}
+%\usetikzlibrary{positioning,chains,fit,shapes,calc}
+%\usetikzlibrary{trees} 
+%\usepackage{tkz-graph}
+\usetikzlibrary{positioning, automata}
+\usepackage{makeidx}         % allows index generation
+ \usepackage{blkarray}% http://ctan.org/pkg/blkarray
+ \newcommand{\matindex}[1]{\mbox{\scriptsize#1}}% Matrix index
+ \usepackage{dcolumn}
+\newcolumntype{L}{D{.}{.}{1.1}}
+\usepackage{multirow}% http://ctan.org/pkg/multirow
+\usepackage{hhline}% http://ctan.org/pkg/hhline
+\usepackage{caption}
+%\captionsetup{labelsep=space,justification=justified,singlelinecheck=off}
+ \usepackage{fancyhdr,graphicx,amsmath,amssymb}
+%\usepackage[ruled,vlined]{algorithm2e}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Code Listing for Python code
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\usepackage{listings}
+\include{pythonlisting}
+\lstdefinestyle{mystyle}{
+  backgroundcolor=\color{backcolour},   commentstyle=\color{codegreen},
+  keywordstyle=\color{magenta},
+  numberstyle=\tiny\color{codegray},
+  stringstyle=\color{codepurple},
+  basicstyle=\ttfamily\footnotesize,
+  breakatwhitespace=false,         
+  breaklines=true,                 
+  captionpos=b,                    
+  keepspaces=true,                 
+  numbers=left,                    
+  numbersep=5pt,                  
+  showspaces=false,                
+  showstringspaces=false,
+  showtabs=false,                  
+  tabsize=2
+}
+
+%"mystyle" code listing set
+\lstset{style=mystyle}
+ 
+\usepackage[bottom]{footmisc}% places footnotes at page bottom
+\usepackage{algorithm, algpseudocode} 
+\captionsetup{compatibility=false} 
+\usepackage{listings}
+\floatstyle{plain} % Box...
+%\restylefloat{figure}% ...figure environment contents.
+
+
+
+
+
+
+%for JSON
+\usepackage{bera}% optional: just to have a nice mono-spaced font
+\usepackage{listings}
+\usepackage{xcolor}
+
+\title{USA Course Allotment System}
+\author{Shrey Gupta, Aditya Shiva Sharma, Unnabh Rathore}
+\date{November 2023}
+
+\begin{document}
+
+
+\maketitle
+Our project focuses on optimizing the University Course Assignment System within a department, addressing the complex task of assigning courses to faculty members belonging to distinct categories (\texttt{$x_1$}, \texttt{$x_2$}, \texttt{$x_3$}). Each category has specific course load constraints, and faculty members express preferences through prioritized lists. The constraints include every professor having a minimum of \texttt{\textbf{4}} First Degree Compulsory Disciplinary Courses (\textbf{4 FD CDCs}), \texttt{\textbf{4}} First Degree Electives (\textbf{4 FD Elecs}), \texttt{\textbf{2}} Higher Degree Compulsory Disciplinary Courses (\textbf{2 HD CDCs}), and \texttt{\textbf{2}} Higher Degree Electives (\textbf{2 HD Elecs}) on their preference list.
+
+\bigskip
+
+The challenge is to develop an assignment scheme that maximizes course assignments while adhering to faculty preferences and category-based constraints, producing multiple different, acceptable combinations as assignments. Notably, the system allows faculty flexibility in taking multiple courses, and a single course can be assigned to multiple faculty members, with load considerations. The uniqueness of this problem lies in its flexibility, differing from conventional assignment problems and offering avenues for potential modifications to enhance its applicability.
+
+\section{Problem Statement}
+
+The problem statement includes a set of constraints applied to various factors like professors, courses, etc. The following represent the constraints:
+
+        \bigskip
+
+        \textbf{1.1} Within a department, there are \texttt{n} faculty members categorised into three distinct groups: \texttt{$x_1$}, \texttt{$x_2$}, and \texttt{$x_3$}. Faculty in each category are assigned different course loads, with \texttt{$x_1$} handling \texttt{\textbf{0.5}} courses per semester, \texttt{$x_2$} taking \texttt{\textbf{1}} course per semester, and \texttt{$x_3$} managing \texttt{\textbf{1.5}} courses per semester.
+
+        \bigskip
+        
+        \textbf{1.2} In this system, faculty members have the flexibility to take multiple courses in a given semester, and conversely, a single course can be assigned to multiple faculty members. When a course is shared between two professors, each professor's load is considered to be \texttt{\textbf{0.5}} courses.
+
+        \bigskip
+        
+        \textbf{1.3} Moreover, each faculty member maintains a preference list of courses, ordered by their personal preferences, with the most preferred courses appearing at the top.
+
+        \bigskip
+        
+        \textbf{1.4} The minimum number of courses a professor has to choose are \texttt{\textbf{4}} FD CDCs, \texttt{\textbf{4}} FD Elecs, \texttt{\textbf{2}} HD CDCs and \texttt{\textbf{2}} HD Elecs.
+
+\section{Algorithm}
+
+A \textit{Depth First Search}-like implementation is used to make the \textbf{Maximum Weighted Matching} algorithm more specialized for the given problem statement. In this algorithm, each edge is assigned a constant/varying positive weight \texttt{n}, whereas, in our algorithm, each edge has weights of either \texttt{0}, \texttt{1} or \texttt{2}. A matrix-based implementation of graphs is a crucial attribute of our algorithm.
+
+\subsection{Theoretical Approach}
+We use the following method to assign courses to professors:
+\bigskip
+    
+    \textbf{2.1.1.} An \texttt{N} x \texttt{M} matrix \textbf{{\texttt{$M_1$}}} representing the preference order of all professors. Initially, the value of any \texttt{A}*\texttt{B} element in the matrix \texttt{\textbf{$M_1$}} is \texttt{2} if professor B has course \texttt{\textbf{$C_1$}} in their preference list and 0 if course A is not in the preference list,
+
+    \bigskip
+    
+    \textbf{2.1.2.} An \texttt{N} x \texttt{M} matrix \texttt{\textbf{$M_2$}} representing professors assigned to every course. Matrix \texttt{\textbf{$M_2$}} is instantiated with all element values equal to \texttt{0},
+
+    \bigskip
+    
+    \textbf{2.1.3.} An \texttt{M} x \texttt{1} \texttt{\textbf{$M_3$}} matrix representing free slots for every professor. Initial values of the elements are equal to their free slots (\texttt{$x_1$} having 1, \texttt{$x_2$} having 2 and \texttt{$x_3$} having 3 free slots respectively),
+
+    \bigskip
+    
+    where 
+    
+    \textbf{\texttt{N}} = Total number of courses 
+    
+    \textbf{\texttt{M}} = Total number of professors.
+
+\subsection{Implementation}
+
+\bigskip
+
+In this section, we run through our implementation of the above-mentioned logic.
+
+    \bigskip
+    
+    \textbf{2.2.1.} The first course \texttt{\textbf{$C_1$}} is picked and horizontally, the first non-zero value is found.
+
+    \bigskip
+    
+    \textbf{2.2.2.} The \texttt{\textbf{$M_3$}} matrix value of the professor \texttt{\textbf{$P_k$}} corresponding to that element is checked. If it has a non-zero value, its value is increased by \texttt{1}, the element's value at \texttt{\textbf{$M_1$}} is decreased by \texttt{1} and the same element at \texttt{\textbf{$M_2$}}’s value is increased by \texttt{1}. This represents the allotment of a course in the solution matrix \texttt{\textbf{$M_2$}}. 
+
+    \bigskip
+    
+    \textbf{2.2.3.} This process is repeated for the next professor and, eventually, the next course. If at any step, for a course \texttt{\textbf{$C_j$}}, the current professor \texttt{\textbf{$P_h$}}'s \texttt{\textbf{$M_3$}} matrix is 0 for all elements in \texttt{\textbf{$M_3$}}, it indicates that the professor has maxed out their courses. Then the algorithm removes the first course assigned to professor \texttt{\textbf{$C_i$}} in \texttt{\textbf{$M_2$}} and rather assigns \texttt{\textbf{$C_j$}} which means decreasing \texttt{i*h}th element of \texttt{\textbf{$M_2$}} by \texttt{1} and increasing the \texttt{i*h}th element by \texttt{1}. 
+
+    \bigskip
+    
+    \textbf{2.2.4.} Then, the algorithm points to the next course's professor \texttt{\textbf{$C_i$}} and repeats the same process.
+
+\section{Crash Tests}
+
+We test our software's capabilitites by subjecting it to crash tests of two kinds. Furthermore, we also discuss our software's behaviour to these stress tests.
+
+\bigskip
+
+    \textbf{3.1.1. Buffer Overflow:}
+
+    \bigskip
+
+        In our current design, we have limited the number of courses and professors to \texttt{\textbf{INT MAX}}, i.e. \texttt{2,147,483,647}. This is an extremely large number of courses and professors (more than 1/4th the world's current population!), and therefore, we do not expect our program to need more professors or courses. When given a greater number of professors or courses, our program will not read those input values after the \texttt{2,147,483,647}th value.
+
+\bigskip
+
+        From a practical view, computing even a tenth of the maximum number of test cases will take enormous amounts of computing time and resources, rendering this approach infeasible.
+
+        \bigskip
+
+    \textbf{3.1.2. Type Mismatch:}
+
+    \bigskip
+
+        Our program takes in the number of courses as an integer, course names as strings and the names of the professors as strings. If a string input is given to the number of courses or if an integer is given as the professor's name, the program will not provide the desired output; instead, a garbage mapping will be created between the professor and a course, which holds no meaning. Our software fails to tackle this problem intelligently. However, it is assumed that the input file contains information in the order as required by the program.
+
+        \bigskip
+
+    \textbf{3.1.3. Input Quantity Mismatch:}
+
+    \bigskip
+
+        In this software, if the number of courses is less than the number of professors, no courses will be allotted due to the inherent design of our program. This is a potential area of future work, as some professors may not take any courses in a given semester.
+
+    \bigskip
+
+        
+
+These explanations are theoretical approaches to how our program will react to such stresses. Further work needs to be conducted along these lines and others to see if these explanations are validated in our code. Also, when developed into a production-scale application, attacks such as Denial of Service (DoS) must be mitigated to offer smooth and secure running of this software.
+
+\end{document}
+
