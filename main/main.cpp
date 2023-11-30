@@ -161,7 +161,7 @@ void writeDataToCSV(const string &filePath, const vector<vector<string> > &data)
 */
 int main()
 {
-    /*// input aditya dekh lega
+    // input aditya dekh lega
 
     ifstream inputFile("input.csv");
 
@@ -221,7 +221,7 @@ int main()
 
     // Close the file
     inputFile.close();
-    // aditya ne dekha kya*/
+    // aditya ne dekha kya
 
     vector<Course> allFDCDCs; // Adding all the FD CDCs offered in a master CourseList
     for (int i = 0; i < allProfs.size(); i++)
